@@ -1,6 +1,46 @@
 {% extends 'covid/base.html' %}
 {% load static %}
 {% block content %}
-    <img src="{% static 'figure.png' %}">
+
+<div class="container">
+    <div class="row mt-2">
+        <div class="col col-md-4">
+            <h1 style="font-family:'Comic Sans MS';" class="text-center mt-5">
+                {{s_name}}
+            </h1>
+        </div>
+        <div class="col col-md-8">
+            <p class=" text-center my-3">As of <span class="text-primary">{{state.Date}}</span></5>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Confirmed</th>
+                            <th>Recovered</th>
+                            <th>Death</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{state.Confirmed}}</td>
+                            <td>{{state.Recovered}}</td>
+                            <td>{{state.Deceased}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-4">
+            <div class="img-fluid">
+                {{map|safe}}
+            </div>
+        </div>
+        <div class="col col-md-8">
+            <img src="{% static 'figure.png' %}" class="img-fluid">
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
-    
