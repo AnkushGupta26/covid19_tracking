@@ -1,5 +1,7 @@
 from django.shortcuts import render
 import pandas as pd
+import requests
+import json
 #selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -56,3 +58,8 @@ def states(request, state_code):
         s_name = s_n
     
     return render(request, 'covid/state.html', {'map':html_code, 'state':state, 's_name':s_name})
+
+def nw(response):
+    news_api = requests.get('https://newsapi.org/v2/everything?q=(covid%20OR%20corona)&language=en&domain=indiatimes.com&apiKey=8576f6f35ecf46bda21b5b2129000212')
+    news = json.loads(news_api.content)
+    return render(response, 'covid/news.html', {'news':news})
