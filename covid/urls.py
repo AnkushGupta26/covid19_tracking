@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('<str:state_code>', views.states, name='state'),
-    path('news/', views.nw, name='news')
+    path('news/', views.news, name='news')
 ]

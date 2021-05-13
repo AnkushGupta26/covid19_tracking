@@ -59,7 +59,7 @@ def states(request, state_code):
     
     return render(request, 'covid/state.html', {'map':html_code, 'state':state, 's_name':s_name})
 
-def nw(response):
-    news_api = requests.get('https://newsapi.org/v2/everything?q=(covid%20OR%20corona)&language=en&domain=indiatimes.com&apiKey=8576f6f35ecf46bda21b5b2129000212')
+def news(response):
+    news_api = requests.get('https://newsapi.org/v2/everything?q=(covid OR corona)&language=en&domain=indiatimes.com&apiKey=8576f6f35ecf46bda21b5b2129000212')
     news = json.loads(news_api.content)
     return render(response, 'covid/news.html', {'news':news})
